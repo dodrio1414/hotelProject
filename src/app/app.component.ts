@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+//import { Interface } from 'readline';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ console.log("bienvenidos a TS");
 // console.log("nombre: "+nombre,"password: "+password,"/"+ typeof bandera)
 //#endregion
 
+
 //#region array
 // let pasatiempo:(String | Number)[] = ["rodrigo","aguirre",2021]
 // pasatiempo.push("push","borrar")
@@ -30,6 +32,7 @@ console.log("bienvenidos a TS");
 //#endregion
 
 //tuples
+
 
 //#region Objetos
 //al crear un objeto la variable hace referencia a un espacio de memoria hexadecimal
@@ -69,6 +72,7 @@ console.log("bienvenidos a TS");
 
 //#endregion
 
+
 //#region  Objetos con get, set y constructor 
 //Constructor nos ayuda a reutilizar las propiedades de un objeto "Funcion especial"
 
@@ -105,6 +109,7 @@ console.log("bienvenidos a TS");
 // console.log(alumno.nombre)
 //#endregion
 
+
 //#region objeto sin interfaz
 //objeto con 
 // let alumno: {
@@ -129,6 +134,7 @@ console.log("bienvenidos a TS");
 //   console.log(alumno[i])
 // }
 //#endregion
+
 
 //#region Objeto con interfaz
 //interfaces ayudan a fijar los atributos de las propiedades del objeto
@@ -156,4 +162,76 @@ console.log("bienvenidos a TS");
 // console.table(alumno)
 
 //#endregion
+
+
+//#region Funciones
+// function sumar(a:number,b:number): number{
+//   return a + b;
+// }
+
+// console.log(sumar(2,3))
+
+// let funcionflecha = (a:string,b:string):string => a +" "+b
+// console.log(funcionflecha("hola","como estas"))
+
+// let funcionVoid = (a:any): void => console.log(a)
+// funcionVoid(sumar(10,5))
+// //funcion atributos NULL/asigando
+// let restar = (a:number,b:number = 2,c?:number) => a+b;
+// console.log(restar(3))
+
+// /* let argumentosSuma = sumatoria(5,4,13,10,9,9);
+// function sumatoria(): number{
+//   let suma: number = 0;
+//   for(let i:number=0,i<arguments.length,i++){
+//     suma+=arguments[i]
+//   }
+//   return suma;
+// } */
+
+//#endregion
+
+//#region Objetos & Funciones
+/* interface Cliente{
+  nombre: string,
+  apellido: string,
+  cuenta: Cuenta,
+}
+
+interface Cuenta{
+  agencia: string,
+  saldo: number
+}
+
+let ag01cl01 = {
+  nombre: "Rodrigo",
+  apellido: "Yturriaga",
+  cuenta: {
+    agencia: "01",
+    saldo: 1000
+  }
+}
+console.log(JSON.stringify(ag01cl01))
+ */
+
+interface Cuenta{
+  agencia: string,
+  saldo: number
+}
+
+let ag01cl01: {
+  nombre: string,
+  apellido: string,
+  cuenta: Cuenta,
+} = {
+  nombre: "Rodrigo",
+  apellido: "Yturriaga",
+  cuenta:{
+    agencia: "01",
+    saldo: 1000
+  }
+
+} 
+
+console.log(JSON.stringify(ag01cl01))
 
