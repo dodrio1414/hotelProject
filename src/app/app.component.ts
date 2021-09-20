@@ -360,7 +360,7 @@ Subir el proyecto a github y presentar la url de github para la revisi√≥n del c√
 //                        Objetos
 //-------------------------------------------------------------------------------------
 
-/* //Define an interface to standardize and reuse your object
+//Define an interface to standardize and reuse your object
 interface Product {
   nameP: string;
   priceP: number;
@@ -461,8 +461,8 @@ let almacen2: Almacen = {
   productos: productsA2,
   
 }
- */
-//////---------------------------------------------------------------------------------------
+
+/* //////---------------------------------------------------------------------------------------
 //                        clases
 //-------------------------------------------------------------------------------------
 
@@ -558,4 +558,4 @@ almacen01.moverProducto(producto02,almacen02);
 almacen01.moverProducto(producto02,almacen02);
 
 almacen02.mostrarProducto();
- 
+  */
