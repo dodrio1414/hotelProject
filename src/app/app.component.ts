@@ -1,4 +1,6 @@
+import { Template } from '@angular/compiler/src/render3/r3_ast';
 import { Component } from '@angular/core';
+import { Curso, DetalleMatricula} from './interfacesPractica';
 //import { Interface } from 'readline';
 
 @Component({
@@ -191,47 +193,333 @@ console.log("bienvenidos a TS");
 
 //#endregion
 
+
 //#region Objetos & Funciones
-/* interface Cliente{
-  nombre: string,
-  apellido: string,
-  cuenta: Cuenta,
-}
 
-interface Cuenta{
-  agencia: string,
-  saldo: number
-}
+// /* interface Cliente{
+//   nombre: string,
+//   apellido: string,
+//   cuenta: Cuenta,
+// }
 
-let ag01cl01 = {
-  nombre: "Rodrigo",
-  apellido: "Yturriaga",
-  cuenta: {
-    agencia: "01",
-    saldo: 1000
-  }
-}
-console.log(JSON.stringify(ag01cl01))
+// interface Cuenta{
+//   agencia: string,
+//   saldo: number
+// }
+
+// let ag01cl01 = {
+//   nombre: "Rodrigo",
+//   apellido: "Yturriaga",
+//   cuenta: {
+//     agencia: "01",
+//     saldo: 1000
+//   }
+// }
+// console.log(JSON.stringify(ag01cl01))
+//  */
+
+// interface Cuenta{
+//   agencia: string,
+//   saldo: number
+// }
+
+// let ag01cl01: {
+//   nombre: string,
+//   apellido: string,
+//   cuenta: Cuenta,
+//   movimiento:(valor:number) => void
+// } = {
+//   nombre: "Rodrigo",
+//   apellido: "Yturriaga",
+//   cuenta:{
+//     agencia: "01",
+//     saldo: 1000
+//   },
+  
+//   movimiento(valor:number) {
+//     //this hace referencia a la instancia en este caso el objeto
+//     this.cuenta.saldo += valor;
+//   }
+// } 
+
+// //Agregar deposito a la cuenta
+// //let deposito = (cantidad:number,cuenta:Cuenta): number => cuenta.saldo+=cantidad
+
+// function deposito(cantidad:number,cuenta:Cuenta): void {
+//   cuenta.saldo+=cantidad
+// } 
+
+// deposito(300,ag01cl01.cuenta)
+
+// //Moviemiento
+// ag01cl01.movimiento(500)
+
+// /* for (let i in ag01cl01){
+//   console.log(ag01cl01[i])
+// }  */
+
+// console.log(JSON.stringify(ag01cl01))
+// console.table(ag01cl01)
+//#endregion
+
+
+//#region  Lectura de un Objeto
+
+// let cuenta:{
+//   cliente: string,
+//   saldo: number,
+//   movimineto:{
+//     saldoAnterior: number,
+//     valorMovimiento: number
+//   }
+// } = {
+//   cliente: "Rodrigo Aguirre",
+//   saldo: 500,
+//   movimineto: {
+//     saldoAnterior: 0,
+//     valorMovimiento: 500
+//   }
+// }
+
+// const{cliente, saldo} = cuenta;
+// console.log(cliente);
+// console.log(saldo);
+//#endregion
+
+
+//#region Desestructuracion de parametros
+
+// const mat_mate: DetalleMatricula = {
+//   nombreCurso : "Matematica",
+//   matriculado: "Y",
+//   creditos: 3 
+// }
+
+// const mat_ads: DetalleMatricula = {
+//   nombreCurso: "ADS I",
+//   matriculado: "Y",
+//   creditos: 4
+// }
+
+// function totalCreditos(a:DetalleMatricula[]):number[] {
+//   let totalCreditos = 0;
+//   let totalCursos = 0;
+//   // a.forEach((detalleMatricula) => {
+//   //   totalCreditos += detalleMatricula.creditos
+//   // });
+
+//   a.forEach(({creditos}) => {
+//     totalCreditos += creditos
+//   });
+
+//   a.forEach(({matriculado}) => {
+//     totalCursos += matriculado.length
+//   });
+//   return [totalCreditos, totalCursos];
+// }
+// //Forma 1 destructurando Objeto
+// //ingresamos los objetos que queremos
+// const detMat: DetalleMatricula[] = [mat_mate, mat_ads]
+// //asginamos a una palabra el tipo de funcion segun su return
+// const [creditosMatricula,cursosMatriculados] = totalCreditos(detMat);
+
+// console.log(creditosMatricula)
+
+// console.log(cursosMatriculados)
+// //Froma 2
+// let asd = totalCreditos([mat_mate, mat_ads])
+// console.log(asd)
+
+//#endregion
+
+
+//#region Export de otro archivo
+// let curso: Curso = {
+//   docente: "Juan Perez",
+//   nombre: "DSII",
+//   creditos: 3
+// }
+
+// console.table(curso)
+//#endregion
+
+
+/* Preparar un programa que permita crear productos, agregarlos a un almacen, 
+modificar la cantidad de productos en el almacen (saldo), tener cuidado con los saldos negativos, 
+trabajar con más de un almacen y mover productos entre almacenes.
+Todo es en consola, la aplicación deberá mostrar los mensajes correspondientes a las acciones de muestra, es decir, 
+si creo un producto y lo agrego al almacen 01, mostrar los productos con sus saldos en el almacen 01.
+
+No es necesario interacción con la aplicación. Presentación individual. 
+Subir el proyecto a github y presentar la url de github para la revisión del código fuente.
  */
 
-interface Cuenta{
-  agencia: string,
-  saldo: number
-}
+/* class Producto{
+  
+  
+  static contarProductos:number = 0;
 
-let ag01cl01: {
-  nombre: string,
-  apellido: string,
-  cuenta: Cuenta,
-} = {
-  nombre: "Rodrigo",
-  apellido: "Yturriaga",
-  cuenta:{
-    agencia: "01",
-    saldo: 1000
+  constructor(
+    private _nombre: string,
+    private _precio: number
+    ){
+    this.nombre = _nombre;
+    this.precio = _precio
   }
 
+  public get precio(): number {
+    return this._precio;
+  }
+  public set precio(value: number) {
+    this._precio = value;
+  }
+  public get nombre(): string {
+    return this._nombre;
+  }
+  public set nombre(value: string) {
+    this._nombre = value;
+  }
+
+  public toString(){
+    console.log(this.precio)
+    console.log(this.nombre)
+  }
+}
+
+Producto.contarProductos = 1
+
+const producto: Producto = new Producto("rodrigo",0)
+
+console.log(producto)
+
+const producto1: Producto = new Producto("rodrigo",0)
+
+console.log(producto1)
+
+class Almacen{
+  static contadorAlmacen = 0;
+
+  constructor(
+    private _productos: [],
+    private _numeroProductos: number,
+
+  ){}
+
+  public agregarProducto(producto){
+    this._productos.push(producto)
+  }
+
+} */
+
+//////---------------------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------------------
+
+//Define an interface to standardize and reuse your object
+interface Product {
+  nameP: string;
+  priceP: number;
+  descriptionP: string;
+  cambioPrice:(valor:number) => void
+}
+
+let cebolla: Product = {
+nameP: "cebolla",
+priceP: 1.43,
+descriptionP: "Estudia sonso",
+cambioPrice(valor:number) {
+  //this hace referencia a la instancia en este caso el objeto
+  this.priceP = valor;
+}
+}
+
+let papa: Product = {
+  nameP: "maiz",
+  priceP: 2.10,
+  descriptionP: "Estudia sonso x2",
+  cambioPrice(valor:number) {
+    //this hace referencia a la instancia en este caso el objeto
+    this.priceP = valor;
+  }
+  }
+let maiz: Product = {
+  nameP: "papa",
+  priceP: 2.10,
+  descriptionP: "Estudia sonso x3",
+  cambioPrice(valor:number) {
+    //this hace referencia a la instancia en este caso el objeto
+    this.priceP = valor;
+  }
+}
+
+
+
+let productsA1: Product[] = [];
+productsA1.push(cebolla,papa,maiz);
+//...do other products.push(_) to add more objects...
+console.table(productsA1);
+//////---------------------------------------------------------------------------------------
+//ALMACEN 1
+//-------------------------------------------------------------------------------------
+
+interface Almacen {
+  name: string;
+  numA: number;
+  description: string;
+  productos: Product[],
+  
+}
+
+let almacen1: Almacen = {
+  name: "almacen1",
+  numA: 1,
+  description: "almacen 1 p sonso",
+  productos: productsA1,
+  
+}
+
+/*  function priceAP(cantidad:number,priceP:number) {
+  priceP=cantidad
 } 
 
-console.log(JSON.stringify(ag01cl01))
+priceAP(300,papa.priceP)  */
+maiz.cambioPrice(100)
+console.table(almacen1.productos)
+//////---------------------------------------------------------------------------------------
+//ALMACEN 2
+//-------------------------------------------------------------------------------------
+
+let camote: Product = {
+  nameP: "camote",
+  priceP: 1.12,
+  descriptionP: "Estudia sonso",
+  cambioPrice(valor:number) {
+    //this hace referencia a la instancia en este caso el objeto
+    this.priceP = valor;
+  }
+  }
+  
+  let trigo: Product = {
+    nameP: "trigo",
+    priceP: 5.10,
+    descriptionP: "Estudia sonso x2",
+    cambioPrice(valor:number) {
+      //this hace referencia a la instancia en este caso el objeto
+      this.priceP = valor;
+    }
+  }
+
+let productsA2: Product[] = [];
+productsA2.push(camote,trigo);
+//...do other products.push(_) to add more objects...
+console.table(productsA2);
+
+let almacen2: Almacen = {
+  name: "almacen1",
+  numA: 1,
+  description: "almacen 1 p sonso",
+  productos: productsA2,
+  
+}
+
 
