@@ -12,4 +12,3 @@ export interface DetalleMatricula{
     creditos: number
   }
 
-

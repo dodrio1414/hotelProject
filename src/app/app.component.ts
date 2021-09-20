@@ -1,6 +1,7 @@
 import { Template } from '@angular/compiler/src/render3/r3_ast';
 import { Component } from '@angular/core';
 import { Curso, DetalleMatricula} from './interfacesPractica';
+import Almacen, { producto } from './tarea';
 //import { Interface } from 'readline';
 
 @Component({
@@ -354,68 +355,12 @@ No es necesario interacción con la aplicación. Presentación individual.
 Subir el proyecto a github y presentar la url de github para la revisión del código fuente.
  */
 
-/* class Producto{
-  
-  
-  static contarProductos:number = 0;
-
-  constructor(
-    private _nombre: string,
-    private _precio: number
-    ){
-    this.nombre = _nombre;
-    this.precio = _precio
-  }
-
-  public get precio(): number {
-    return this._precio;
-  }
-  public set precio(value: number) {
-    this._precio = value;
-  }
-  public get nombre(): string {
-    return this._nombre;
-  }
-  public set nombre(value: string) {
-    this._nombre = value;
-  }
-
-  public toString(){
-    console.log(this.precio)
-    console.log(this.nombre)
-  }
-}
-
-Producto.contarProductos = 1
-
-const producto: Producto = new Producto("rodrigo",0)
-
-console.log(producto)
-
-const producto1: Producto = new Producto("rodrigo",0)
-
-console.log(producto1)
-
-class Almacen{
-  static contadorAlmacen = 0;
-
-  constructor(
-    private _productos: [],
-    private _numeroProductos: number,
-
-  ){}
-
-  public agregarProducto(producto){
-    this._productos.push(producto)
-  }
-
-} */
 
 //////---------------------------------------------------------------------------------------
-
+//                        Objetos
 //-------------------------------------------------------------------------------------
 
-//Define an interface to standardize and reuse your object
+/* //Define an interface to standardize and reuse your object
 interface Product {
   nameP: string;
   priceP: number;
@@ -478,11 +423,6 @@ let almacen1: Almacen = {
   
 }
 
-/*  function priceAP(cantidad:number,priceP:number) {
-  priceP=cantidad
-} 
-
-priceAP(300,papa.priceP)  */
 maiz.cambioPrice(100)
 console.table(almacen1.productos)
 //////---------------------------------------------------------------------------------------
@@ -521,5 +461,101 @@ let almacen2: Almacen = {
   productos: productsA2,
   
 }
+ */
+//////---------------------------------------------------------------------------------------
+//                        clases
+//-------------------------------------------------------------------------------------
+
+//////---------------------------------------------------------------------------------------
+//                        ALMACENES
+//-----------------------------------------------------------------------------------
 
 
+ const almacen01 : Almacen = new Almacen("almacen01","Almacen --------------- 1 ------------------",[]);
+ const almacen02 : Almacen = new Almacen("almacen02","Almacen --------------- 2 ------------------",[]);
+ const almacen03 : Almacen = new Almacen("almacen03","Almacen --------------- 3 ------------------",[]);
+
+//////---------------------------------------------------------------------------------------
+//                        PRODUCTOS
+//-----------------------------------------------------------------------------------
+
+
+const producto01 :  producto = {
+  codigoP : "P1",
+  nombreP : "Cebolla",
+  priceP: 1.1,
+  cambioPrice(valor:number) {
+    //this hace referencia a la instancia en este caso el objeto
+    this.priceP = valor;
+  }
+}
+
+const producto02 : producto = {
+  codigoP : "P2",
+  nombreP : "papa",
+  priceP: 1.2,
+  cambioPrice(valor:number) {
+    //this hace referencia a la instancia en este caso el objeto
+    this.priceP = valor;
+  }
+}
+
+const producto03 : producto = {
+  codigoP : "P3",
+  nombreP : "camote",
+  priceP: 1.3,
+  cambioPrice(valor:number) {
+    //this hace referencia a la instancia en este caso el objeto
+    this.priceP = valor;
+  }
+}
+
+
+const producto04 : producto = {
+  codigoP : "P4",
+  nombreP : "maiz",
+  priceP: 1.4,
+  cambioPrice(valor:number) {
+    //this hace referencia a la instancia en este caso el objeto
+    this.priceP = valor;
+  }
+}
+
+
+//////---------------------------------------------------------------------------------------
+//                        CONSULTAS
+//-----------------------------------------------------------------------------------
+
+
+//ingresar productos en un almacen
+//cambio de precio
+producto01.cambioPrice(100)
+producto02.cambioPrice(20)
+
+// ALMACEN 1
+almacen01.ingresarProducto(producto01);
+almacen01.ingresarProducto(producto02);
+almacen02.ingresarProducto(producto03);
+almacen03.ingresarProducto(producto04);
+
+
+//lectura almacen 1
+almacen01.mostrarProducto();
+
+
+// ALMACEN 2
+
+//lectura almacen 2
+almacen02.mostrarProducto();
+
+// ALMACEN 3
+
+//lectura almacen 3
+almacen03.mostrarProducto();
+
+
+almacen01.moverProducto(producto02,almacen02);
+almacen01.moverProducto(producto02,almacen02);
+
+almacen02.mostrarProducto();
+ 
