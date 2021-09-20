@@ -1,10 +1,18 @@
+export interface producto {   
+  id: number; 
+  codigoP : string;
+  nombreP  : string;
+  priceP: number,
+  cambioPrice:(valor:number) => void
+}
+
 // ALMACEN
 
 export default class Almacen{
     constructor (
       private codigoA : string,
       private nombAlmacen : string,
-      private prodAlmacen   : producto[]
+      private prodAlmacen   : producto[] 
     ){}
 
     //Funcion ingresar Prodructo
@@ -12,7 +20,7 @@ export default class Almacen{
       this.prodAlmacen.push(P);
     }
     
-    //Funcion Busacar
+    //Funcion mostrar Productos
     public mostrarProducto(){
       console.log("\nnombre Almacen:"+this.nombAlmacen+
                     "\ncodigo del almacen: "+this.codigoA);
@@ -23,21 +31,33 @@ export default class Almacen{
   
     public buscarProducto(codP : producto){
       let buscarProducto = false;
-      let position = 0;
+      let position = 1;
       let indiceProducto = 0;
    
       while(!buscarProducto && indiceProducto < this.prodAlmacen.length) {
           if(this.prodAlmacen[indiceProducto] == codP) {
               buscarProducto = true;
-              position = indiceProducto-1;
+              position = indiceProducto;
           } else {
               indiceProducto += 1;
           }
       }
       return position;
     }
+    public buscarP(producto:producto){  
+      let resultado = this.prodAlmacen.find((procd)=>procd.id = producto.id);
+      if(resultado == null){
+        return null;
+      }
+      console.log("busqueda Producto:-----------")
+      return resultado;
+      }
 
+      /* private quitarP(codP : producto){
+        let posicion = this.buscarP(codP);
     
+        this.prodAlmacen.splice(posicion,1);
+      } */
   
     private quitarProducto(codP : producto){
       let posicion = this.buscarProducto(codP);
@@ -58,11 +78,6 @@ export default class Almacen{
   }
    
    
-  // PRODUCTOS
+  
    
-  export interface producto {    
-    codigoP : string;
-    nombreP  : string;
-    priceP: number,
-    cambioPrice:(valor:number) => void
-  }
+  

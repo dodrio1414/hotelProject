@@ -360,7 +360,7 @@ Subir el proyecto a github y presentar la url de github para la revisi√≥n del c√
 //                        Objetos
 //-------------------------------------------------------------------------------------
 
-//Define an interface to standardize and reuse your object
+/* //Define an interface to standardize and reuse your object
 interface Product {
   nameP: string;
   priceP: number;
@@ -461,8 +461,8 @@ let almacen2: Almacen = {
   productos: productsA2,
   
 }
-
-/* //////---------------------------------------------------------------------------------------
+ */
+//////---------------------------------------------------------------------------------------
 //                        clases
 //-------------------------------------------------------------------------------------
 
@@ -481,6 +481,7 @@ let almacen2: Almacen = {
 
 
 const producto01 :  producto = {
+  id: 1, 
   codigoP : "P1",
   nombreP : "Cebolla",
   priceP: 1.1,
@@ -491,6 +492,7 @@ const producto01 :  producto = {
 }
 
 const producto02 : producto = {
+  id: 2, 
   codigoP : "P2",
   nombreP : "papa",
   priceP: 1.2,
@@ -501,6 +503,7 @@ const producto02 : producto = {
 }
 
 const producto03 : producto = {
+  id: 3, 
   codigoP : "P3",
   nombreP : "camote",
   priceP: 1.3,
@@ -510,8 +513,8 @@ const producto03 : producto = {
   }
 }
 
-
 const producto04 : producto = {
+  id: 4, 
   codigoP : "P4",
   nombreP : "maiz",
   priceP: 1.4,
@@ -553,9 +556,12 @@ almacen02.mostrarProducto();
 //lectura almacen 3
 almacen03.mostrarProducto();
 
-
+// movimiento entre almacenes
 almacen01.moverProducto(producto02,almacen02);
 almacen01.moverProducto(producto02,almacen02);
 
 almacen02.mostrarProducto();
-  */
+
+//buscar un producto en el almacen
+console.table(almacen01.buscarP(producto01))
+
