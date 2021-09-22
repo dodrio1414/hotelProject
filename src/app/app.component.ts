@@ -1,8 +1,10 @@
 import { Template } from '@angular/compiler/src/render3/r3_ast';
 import { Component } from '@angular/core';
 import { Curso, DetalleMatricula} from './interfacesPractica';
-import Almacen, { producto } from './tarea';
+//tarea con objeto y clases
+//import Almacen, { producto } from './tarea';
 //import { Interface } from 'readline';
+import { General, AlmacenClass, ProductoClass } from './herencia&Clases';
 
 @Component({
   selector: 'app-root',
@@ -463,7 +465,7 @@ let almacen2: Almacen = {
 }
  */
 //////---------------------------------------------------------------------------------------
-//                        clases
+//                        clases & objetos
 //-------------------------------------------------------------------------------------
 
 //////---------------------------------------------------------------------------------------
@@ -471,97 +473,155 @@ let almacen2: Almacen = {
 //-----------------------------------------------------------------------------------
 
 
- const almacen01 : Almacen = new Almacen("almacen01","Almacen --------------- 1 ------------------",[]);
- const almacen02 : Almacen = new Almacen("almacen02","Almacen --------------- 2 ------------------",[]);
- const almacen03 : Almacen = new Almacen("almacen03","Almacen --------------- 3 ------------------",[]);
+//  const almacen01 : Almacen = new Almacen("almacen01","Almacen --------------- 1 ------------------",[]);
+//  const almacen02 : Almacen = new Almacen("almacen02","Almacen --------------- 2 ------------------",[]);
+//  const almacen03 : Almacen = new Almacen("almacen03","Almacen --------------- 3 ------------------",[]);
 
-//////---------------------------------------------------------------------------------------
-//                        PRODUCTOS
-//-----------------------------------------------------------------------------------
-
-
-const producto01 :  producto = {
-  id: 1, 
-  codigoP : "P1",
-  nombreP : "Cebolla",
-  priceP: 1.1,
-  cambioPrice(valor:number) {
-    //this hace referencia a la instancia en este caso el objeto
-    this.priceP = valor;
-  }
-}
-
-const producto02 : producto = {
-  id: 2, 
-  codigoP : "P2",
-  nombreP : "papa",
-  priceP: 1.2,
-  cambioPrice(valor:number) {
-    //this hace referencia a la instancia en este caso el objeto
-    this.priceP = valor;
-  }
-}
-
-const producto03 : producto = {
-  id: 3, 
-  codigoP : "P3",
-  nombreP : "camote",
-  priceP: 1.3,
-  cambioPrice(valor:number) {
-    //this hace referencia a la instancia en este caso el objeto
-    this.priceP = valor;
-  }
-}
-
-const producto04 : producto = {
-  id: 4, 
-  codigoP : "P4",
-  nombreP : "maiz",
-  priceP: 1.4,
-  cambioPrice(valor:number) {
-    //this hace referencia a la instancia en este caso el objeto
-    this.priceP = valor;
-  }
-}
+// //////---------------------------------------------------------------------------------------
+// //                        PRODUCTOS
+// //-----------------------------------------------------------------------------------
 
 
-//////---------------------------------------------------------------------------------------
-//                        CONSULTAS
-//-----------------------------------------------------------------------------------
+// const producto01 :  producto = {
+//   id: 1, 
+//   codigoP : "P1",
+//   nombreP : "Cebolla",
+//   priceP: 1.1,
+//   cambioPrice(valor:number) {
+//     //this hace referencia a la instancia en este caso el objeto
+//     this.priceP = valor;
+//   }
+// }
+
+// const producto02 : producto = {
+//   id: 2, 
+//   codigoP : "P2",
+//   nombreP : "papa",
+//   priceP: 1.2,
+//   cambioPrice(valor:number) {
+//     //this hace referencia a la instancia en este caso el objeto
+//     this.priceP = valor;
+//   }
+// }
+
+// const producto03 : producto = {
+//   id: 3, 
+//   codigoP : "P3",
+//   nombreP : "camote",
+//   priceP: 1.3,
+//   cambioPrice(valor:number) {
+//     //this hace referencia a la instancia en este caso el objeto
+//     this.priceP = valor;
+//   }
+// }
+
+// const producto04 : producto = {
+//   id: 4, 
+//   codigoP : "P4",
+//   nombreP : "maiz",
+//   priceP: 1.4,
+//   cambioPrice(valor:number) {
+//     //this hace referencia a la instancia en este caso el objeto
+//     this.priceP = valor;
+//   }
+// }
 
 
-//ingresar productos en un almacen
-//cambio de precio
-producto01.cambioPrice(100)
-producto02.cambioPrice(20)
-
-// ALMACEN 1
-almacen01.ingresarProducto(producto01);
-almacen01.ingresarProducto(producto02);
-almacen02.ingresarProducto(producto03);
-almacen03.ingresarProducto(producto04);
+// //////---------------------------------------------------------------------------------------
+// //                        CONSULTAS
+// //-----------------------------------------------------------------------------------
 
 
-//lectura almacen 1
-almacen01.mostrarProducto();
+// //ingresar productos en un almacen
+// //cambio de precio
+// producto01.cambioPrice(100)
+// producto02.cambioPrice(20)
+
+// // ALMACEN 1
+// almacen01.ingresarProducto(producto01);
+// almacen01.ingresarProducto(producto02);
+// almacen02.ingresarProducto(producto03);
+// almacen03.ingresarProducto(producto04);
 
 
-// ALMACEN 2
+// //lectura almacen 1
+// almacen01.mostrarProducto();
 
-//lectura almacen 2
-almacen02.mostrarProducto();
 
-// ALMACEN 3
+// // ALMACEN 2
 
-//lectura almacen 3
-almacen03.mostrarProducto();
+// //lectura almacen 2
+// almacen02.mostrarProducto();
 
-// movimiento entre almacenes
-almacen01.moverProducto(producto02,almacen02);
-almacen01.moverProducto(producto02,almacen02);
+// // ALMACEN 3
 
-almacen02.mostrarProducto();
+// //lectura almacen 3
+// almacen03.mostrarProducto();
+
+// // movimiento entre almacenes
+// almacen01.moverProducto(producto02,almacen02);
+// almacen01.moverProducto(producto02,almacen02);
+
+// almacen02.mostrarProducto();
+
+// //buscar un producto en el almacen
+// console.table(almacen01.buscarP(producto01))
+
+
+
+// //////---------------------------------------------------------------------------------------
+// //                        HERENCIA & CLASES
+// //-----------------------------------------------------------------------------------
+
+// //////---------------------------------------------------------------------------------------
+// //                        PRODUCTOS
+// //-----------------------------------------------------------------------------------
+const cebolla: ProductoClass = new ProductoClass("Cebolla",1.5)
+
+
+const papa: ProductoClass = new ProductoClass("papa",2.1)
+
+
+const camote: ProductoClass = new ProductoClass("Camote",1.2)
+
+
+// //////---------------------------------------------------------------------------------------
+// //                        SHOW PRODUCTS
+// //-----------------------------------------------------------------------------------
+console.table(cebolla)
+console.table(papa)
+console.table(camote)
+
+// //////---------------------------------------------------------------------------------------
+// //                        warehouse
+// //-----------------------------------------------------------------------------------
+
+const almacen1: AlmacenClass = new AlmacenClass("Alamcen Rodrigo")
+const almacen2: AlmacenClass = new AlmacenClass("Alamcen Diego")
+
+// //////---------------------------------------------------------------------------------------
+// //                       PRODUCTS -> WAREHOUSE
+// //-----------------------------------------------------------------------------------
+almacen1.ingresarProducto(cebolla);
+almacen1.ingresarProducto(papa);
+almacen2.ingresarProducto(camote)
+
+// //////---------------------------------------------------------------------------------------
+// //                       PRICE -> PRICE + NEW PRICE | PRICE -> NEW PRICE
+// //-----------------------------------------------------------------------------------
+cebolla.agregarCantidad(20)
+camote.nuevoPrecio(2000)
+
+
+console.table(almacen1)
+console.table(almacen2)
+
+almacen1.mostrarProducto()
+almacen2.mostrarProducto()
+
+// //////---------------------------------------------------------------------------------------
+// //                       SEARCH A PRODUCT
+// //-----------------------------------------------------------------------------------
 
 //buscar un producto en el almacen
-console.table(almacen01.buscarP(producto01))
-
+console.table(almacen1.buscarP(cebolla))
