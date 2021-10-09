@@ -1,10 +1,12 @@
 import { Template } from '@angular/compiler/src/render3/r3_ast';
 import { Component } from '@angular/core';
 import { Curso, DetalleMatricula} from './interfacesPractica';
+import { Producto, Orden } from './PracticaDeTs';
 //tarea con objeto y clases
 //import Almacen, { producto } from './tarea';
 //import { Interface } from 'readline';
-import { General, AlmacenClass, ProductoClass } from './herencia&Clases';
+// import { General, AlmacenClass, ProductoClass } from './herencia&Clases';
+// import { Hija, Persona, Hija2 } from './PracticaDeTs';
 
 @Component({
   selector: 'app-root',
@@ -346,7 +348,7 @@ console.log("bienvenidos a TS");
 // console.table(curso)
 //#endregion
 
-
+//#region TAREA 1
 /* Preparar un programa que permita crear productos, agregarlos a un almacen, 
 modificar la cantidad de productos en el almacen (saldo), tener cuidado con los saldos negativos, 
 trabajar con más de un almacen y mover productos entre almacenes.
@@ -566,62 +568,80 @@ let almacen2: Almacen = {
 
 // //buscar un producto en el almacen
 // console.table(almacen01.buscarP(producto01))
+//#endregion
+
+//#region TAREA CON CLASES Y HERENCIA
+// // //////---------------------------------------------------------------------------------------
+// // //                        HERENCIA & CLASES
+// // //-----------------------------------------------------------------------------------
+
+// // //////---------------------------------------------------------------------------------------
+// // //                        PRODUCTOS
+// // //-----------------------------------------------------------------------------------
+// const cebolla: ProductoClass = new ProductoClass("Cebolla",1.5)
 
 
-
-// //////---------------------------------------------------------------------------------------
-// //                        HERENCIA & CLASES
-// //-----------------------------------------------------------------------------------
-
-// //////---------------------------------------------------------------------------------------
-// //                        PRODUCTOS
-// //-----------------------------------------------------------------------------------
-const cebolla: ProductoClass = new ProductoClass("Cebolla",1.5)
+// const papa: ProductoClass = new ProductoClass("papa",2.1)
 
 
-const papa: ProductoClass = new ProductoClass("papa",2.1)
+// const camote: ProductoClass = new ProductoClass("Camote",1.2)
 
 
-const camote: ProductoClass = new ProductoClass("Camote",1.2)
+// // //////---------------------------------------------------------------------------------------
+// // //                        SHOW PRODUCTS
+// // //-----------------------------------------------------------------------------------
+// console.table(cebolla)
+// console.table(papa)
+// console.table(camote)
+
+// // //////---------------------------------------------------------------------------------------
+// // //                        warehouse
+// // //-----------------------------------------------------------------------------------
+
+// const almacen1: AlmacenClass = new AlmacenClass("Alamcen Rodrigo")
+// const almacen2: AlmacenClass = new AlmacenClass("Alamcen Diego")
+// // //////---------------------------------------------------------------------------------------
+// // //                       PRODUCTS -> WAREHOUSE
+// // //-----------------------------------------------------------------------------------
+// almacen1.ingresarProducto(cebolla);
+// almacen1.ingresarProducto(papa);
+// almacen2.ingresarProducto(camote)
+
+// // //////---------------------------------------------------------------------------------------
+// // //                       PRICE -> PRICE + NEW PRICE | PRICE -> NEW PRICE
+// // //-----------------------------------------------------------------------------------
+// cebolla.agregarCantidad(20)
+// camote.nuevoPrecio(2000)
 
 
-// //////---------------------------------------------------------------------------------------
-// //                        SHOW PRODUCTS
-// //-----------------------------------------------------------------------------------
+// console.table(almacen1)
+// console.table(almacen2)
+
+// almacen1.mostrarProducto()
+// almacen2.mostrarProducto()
+
+// // //////---------------------------------------------------------------------------------------
+// // //                       SEARCH A PRODUCT
+// // //-----------------------------------------------------------------------------------
+
+// //buscar un producto en el almacen
+// console.table(almacen1.buscarP(cebolla))
+
+// almacen1.quitarProducto(camote)
+// almacen1.mostrarProducto()
+//#endregion
+
+//#region Practica todo TS
+
+const cebolla: Producto = new Producto('🧅',1.5,150)
 console.table(cebolla)
-console.table(papa)
-console.table(camote)
 
-// //////---------------------------------------------------------------------------------------
-// //                        warehouse
-// //-----------------------------------------------------------------------------------
+const tomato: Producto = new Producto('🍅',1.2,200)
+console.table(tomato)
 
-const almacen1: AlmacenClass = new AlmacenClass("Alamcen Rodrigo")
-const almacen2: AlmacenClass = new AlmacenClass("Alamcen Diego")
+const potato: Producto = new Producto('🥔',1.95,500)
+console.table(potato)
 
-// //////---------------------------------------------------------------------------------------
-// //                       PRODUCTS -> WAREHOUSE
-// //-----------------------------------------------------------------------------------
-almacen1.ingresarProducto(cebolla);
-almacen1.ingresarProducto(papa);
-almacen2.ingresarProducto(camote)
-
-// //////---------------------------------------------------------------------------------------
-// //                       PRICE -> PRICE + NEW PRICE | PRICE -> NEW PRICE
-// //-----------------------------------------------------------------------------------
-cebolla.agregarCantidad(20)
-camote.nuevoPrecio(2000)
-
-
-console.table(almacen1)
-console.table(almacen2)
-
-almacen1.mostrarProducto()
-almacen2.mostrarProducto()
-
-// //////---------------------------------------------------------------------------------------
-// //                       SEARCH A PRODUCT
-// //-----------------------------------------------------------------------------------
-
-//buscar un producto en el almacen
-console.table(almacen1.buscarP(cebolla))
+const orden1:Orden = new Orden(5)
+orden1.agregarProductos(cebolla)
+console.table(orden1)
