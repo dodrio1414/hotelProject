@@ -645,3 +645,5 @@ console.table(potato)
 const orden1:Orden = new Orden(5)
 orden1.agregarProductos(cebolla)
 console.table(orden1)
+
+console.log("Falta decoradores XD")
