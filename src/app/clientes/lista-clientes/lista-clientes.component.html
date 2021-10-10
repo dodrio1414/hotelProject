@@ -1,0 +1,22 @@
+<div class="container">
+        <h2>Clientes</h2>
+    <ul>
+        <!-- podemos ingresar codigo JS  con "*" -->
+        <li *ngFor="let variableDefinida of clientes ; let i = index;"
+        >{{i+1}}-{{variableDefinida}}</li>
+
+    </ul>
+    <!-- no mostrar si no se tiene nada aun -->
+    <div *ngIf="clienteEliminado !== ''">
+        <h2>Clientes Eliminados</h2>
+        <ul>
+            <li>{{clienteEliminado}}</li>
+        </ul>
+    </div>
+    
+</div>
+<div class="justify-content-center">
+    <button type="button" class="btn btn-success ms-5" (click)="agregarClientes()">Agregar Cliente</button>
+<button type="button" class="btn btn-danger ms-5" (click)="eliminarCliente()">Eliminar Cliente</button>
+</div>
+
