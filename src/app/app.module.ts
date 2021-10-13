@@ -9,14 +9,17 @@ import { ClientesModule } from './clientes/clientes.module';
 import { NavbarSPAComponent } from './navbar/navbar-spa/navbar-spa.component';
 import { FollowUpComponent } from './progress/follow-up/follow-up.component';
 import { FooterContentComponent } from './footer/footer-content/footer-content.component';
+import { FooterModule } from './footer/footer.module';
+import { ProgressModule } from './progress/progress.module';
+import { ProveedoresModule } from './proveedores/proveedores.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     agregadorComponent,
     NavbarSPAComponent,
-    FollowUpComponent,
-    FooterContentComponent,
+    
+    
 
     
     
@@ -24,6 +27,11 @@ import { FooterContentComponent } from './footer/footer-content/footer-content.c
   imports: [
     BrowserModule,
     ClientesModule,
+    FooterModule,
+    ProgressModule,
+    ProveedoresModule,
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

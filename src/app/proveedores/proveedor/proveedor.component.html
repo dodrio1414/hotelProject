@@ -1,0 +1,76 @@
+<h2 class="container-fluid d-flex justify-content-center header-first fs-2">proveedor works!</h2>
+
+<div class="container-fluid d-flex row mx-0">
+    <div class="col-6">
+        <h3 class="text-center border border-success">Empresas</h3>
+        <hr>
+        <ul>
+            <li>gloria - 15</li>
+            <li>Alicorp - 50</li>
+            <li>Nestle - 12</li>
+        </ul>
+    </div>
+    <div class="col-6">
+        <h3>Agregar</h3>
+        <hr>
+        <!-- $event es el evento a interceptar -->
+        <form (ngSubmit)="agregar()">
+            <div class="mb-3">
+                <label for="empresa" class="form-label" >Empresa</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="ingresar Empresa" 
+                    id="empresa"
+                    name="proveedorNombre"
+                    [(ngModel)]="nuevoProveedor.nombre"
+                    >
+                    <!--No se debe hacer 
+                        [value] = "nuevoProveedor.nombre"
+                    (input)="agregarInput($event)" -->
+            </div>
+            <div class="mb-3">
+                <label for="productos" class="form-label" >Empresa</label>
+                <input type="number" class="form-control" placeholder="Cantidad de productos" id="productos"
+                [value]="nuevoProveedor.productos"
+                name="cantidadProductosXD"
+                [(ngModel)]="nuevoProveedor.productos"
+                >
+            </div>
+
+            <!-- EL NAME SE USA PARA AGRUPAR ETIQUETAS -->
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" 
+                    name="nameDeRadio" id="flexRadioDefault1"
+                    [(ngModel)]="nuevoProveedor.tipo"
+                    value="Princiapl.Proveedor">
+
+                    <label class="form-check-label" for="flexRadioDefault1">
+                    Princiapl Proveedor
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" 
+                    name="nameDeRadio" id="flexRadioDefault2"
+                    [(ngModel)]="nuevoProveedor.tipo"
+                    value="Secundario.Proveedor">
+
+                    <label class="form-check-label" for="flexRadioDefault2">
+                    Secundario Proveedor
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" 
+                    name="nameDeRadio" id="flexRadioDefault3"
+                    [(ngModel)]="nuevoProveedor.tipo"
+                    value="Proveedor.Eventual">
+
+                    <label class="form-check-label" for="flexRadioDefault2">
+                    Proveedor Eventual
+                    </label>
+                </div>
+            <button type="submit" class="btn border-success mt-1 mb-5">Agregar</button>
+        </form>
+    </div>
+    
+</div>

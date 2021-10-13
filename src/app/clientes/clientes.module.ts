@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 
 import { clienteComponent } from './cliente/cliente.component';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
+import { ProveedoresModule } from '../proveedores/proveedores.module';
 
 //decorador para modificar o agregar caracteristicas a la clase "ClientesModule"
 @NgModule({
@@ -19,7 +20,8 @@ import { ListaClientesComponent } from './lista-clientes/lista-clientes.componen
         clienteComponent,
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        ProveedoresModule,
     ]
 })
 

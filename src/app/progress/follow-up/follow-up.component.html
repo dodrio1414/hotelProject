@@ -12,7 +12,7 @@
                 <div class="col-md-3">
                     <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                         <div>
-                            <h3 class="fs-2">320</h3>
+                            <h3 class="fs-2">{{ FollowUpData.room }}</h3>
                             <p class="fs-5">Room</p>
                         </div>
                         <i class="fas fa-bed fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -22,7 +22,7 @@
                 <div class="col-md-3">
                     <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                         <div>
-                            <h3 class="fs-2">$ 920</h3>
+                            <h3 class="fs-2">$ {{ FollowUpData.totalPrice }}</h3>
                             <p class="fs-5">Total price</p>
                         </div>
                         
@@ -34,17 +34,18 @@
                 <div class="col-md-3">
                     <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                         <div>
-                            <h3 class="fs-2">$ 19</h3>
-                            <p class="fs-5"> Total discount</p>
-                        </div>                       
-                        <i class="fas fa-user-tag fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                            <h3 class="fs-2">$ {{ FollowUpData.totalRestaurant }}</h3>
+                            <p class="fs-5"> Total restaurant</p>
+                        </div>    
+                                         
+                        <i class="fas fa-utensils fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                         <div>
-                            <h3 class="fs-2">Rodrigo Aguirre</h3>
+                            <h3 class="fs-2">{{ FollowUpData.userName }}</h3>
                             <p class="fs-5">User</p>
                         </div>
                         <i class="fas fa-user fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -65,6 +66,11 @@
                                 <th>Price</th>
                                 <th>Discount</th>
                                 <th>Detail</th>
+                            </tr>
+                            <tr>
+                                <td *ngFor="let variableDefinida of FollowUpData.seguimiento">
+                                    {{variableDefinida}}
+                                </td>
                             </tr>
                         </thead>
                         <tbody></tbody>
